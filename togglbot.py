@@ -8,6 +8,8 @@ import datetime
 import http.client
 import sys
 import re
+import os
+import platform
 import random
 
 from urlparse import urlparse
@@ -33,31 +35,37 @@ slot3 = abs(slotv3)
 slot4 = abs(slotv4)
 slot5 = abs(slotv5)
 
+hw = ["Calculus", "Break", "Study"]
+
 #params = urlparse.urlencode({'@number': 12524, '@type': 'issue','@action': 'show'})
 headers = {"Content-type": "application/x-www-form-urlencoded","Accept": "text/plain"}
 
 # SETUP
+print"Running on:", platform.system(),platform.release()
 conn = http.client.HTTPSConnection("www.toggl.com")
 conn.request("GET","/")
 r1 = conn.getresponse()
-print(r1.status,r1.reason) #200 OK
+print "STATUS", r1.status,r1.reason #200 OK
 
 data1 = r1.read()#content
 conn.request("GET","/")
 r1 = conn.getresponse()
 #while not r1.closed:
+print("Bytes recieved:")
 print(len(r1.read(200)))#200 bytes
-print("Bytes recieved")
 
-#LOGIN
-#https://togglstats.toggl.com/in.php?site_id=100991496&type=ping&jsuid=3406503203&mime=js&x=0.5637338976052283
-loginparams = 
-loginheaders = 
-conn.request("POST", "", loginparams, loginheaders)
-response = conn.getresponse()
-print("Login status:\n")
-print(response.status, response.reason) #Login Status
-#print(response.read())
+#LOG DATA (before sending)
+print "DATA:"
+print "========="
+print slotv1, "Minutes", random.choice(hw)
+print slotv2, "Minutes", random.choice(hw)
+print slotv3, "Minutes", random.choice(hw)
+print slotv4, "Minutes", random.choice(hw)
+print slotv5, "Minutes", random.choice(hw)
+
+#SEND DATA
+conn.request("HEAD", "dataparams1, dataheaders2")#1st request
+conn.request("POST", "dataparams1, dataheaders2")#1st request
 
 #Logout
 now = datetime.datetime.now()#note the time
