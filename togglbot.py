@@ -6,6 +6,9 @@
 
 import datetime
 import http.client
+import urllib2
+import requests
+import json
 import sys
 import re
 import os
@@ -21,21 +24,26 @@ if ((3, 0) <= sys.version_info <= (3, 9)):
 elif ((2, 0) <= sys.version_info <= (2, 9)):
     from urlparse import urlparse
 
+logindata = "email@floridapoly.edu:PASSWORD"
+username = "email@floridapoly.edu"
+password ="Password123"
+
 # SEED
-seed = (randint(10,60))
-slotv1 = (randint(10,60))
-slotv2 = (randint(10,60))
-slotv3 = (randint(10,60))
-slotv4 = (randint(10,60))
-slotv5 = (randint(10,60))
+seed = randint(10,60)
+slotv1 = randint(10,59)
+slotv2 = randint(10,59)
+slotv3 = randint(10,59)
+slotv4 = randint(10,59)
+slotv5 = randint(10,59)
+slotv6 = randint(10,59)
+slotv7 = randint(10,59)
+slotv8 = randint(10,59)
 
-slot1 = abs(slotv1)
-slot2 = abs(slotv2)
-slot3 = abs(slotv3)
-slot4 = abs(slotv4)
-slot5 = abs(slotv5)
+time = datetime.time() #now.time
+day = datetime.day() #now.day
+month = datetime.month() #now.month
 
-hw = ["Calculus", "Break", "Study"]
+hw = ["Calculus", "Break", "Study", "Physics", "LAB", "Misc.", "Robotics", "Programming", "Study group", "Project"]
 
 #params = urlparse.urlencode({'@number': 12524, '@type': 'issue','@action': 'show'})
 headers = {"Content-type": "application/x-www-form-urlencoded","Accept": "text/plain"}
@@ -62,10 +70,33 @@ print slotv2, "Minutes", random.choice(hw)
 print slotv3, "Minutes", random.choice(hw)
 print slotv4, "Minutes", random.choice(hw)
 print slotv5, "Minutes", random.choice(hw)
+print slotv6, "Minutes", random.choice(hw)
+print slotv7, "Minutes", random.choice(hw)
+print slotv8, "Minutes", random.choice(hw)
+
+#Authenticate with API
 
 #SEND DATA
-conn.request("HEAD", "dataparams1, dataheaders2")#1st request
-conn.request("POST", "dataparams1, dataheaders2")#1st request
+#apitoken = 2#API secret
+
+
+req = urllib2.request(www.toggl.com)
+req.add_header('%s', ":", "%s" username, password)#header? curl -u
+req.add_header("Content-Type", "application/json")
+req.add_header('{"time_entry":{"description":"New time entry","created_with":"togglbot","start":"2019-%i-%iT%i:%i+00:%i","duration":%i, "wid":%i}}' % day, month, time, slotv1)
+
+res = urllib2.urlopen(req)
+print res.read(req)
+
+connection = http.client.HTTPSConnection('www.toggl.com')
+r = requests.get('www.toggl.com', auth=('logindata'))
+print "Logging in:", r.status_code
+
+#RETRIEVE DATA
+
+
+#conn.request("HEAD", "dataparams1, dataheaders2")#1st request
+#conn.request("POST", "dataparams1, dataheaders2")#1st request
 
 #Logout
 now = datetime.datetime.now()#note the time
