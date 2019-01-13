@@ -5,3 +5,4 @@ A simple http bot in python that uses the toggl API
 
 # Summary
 A python bot that automatically submits psuedo-random info into a scheduler field on toggl. (www.toggl.com)
+Developed to do my homework for me.
