@@ -1,7 +1,5 @@
 # TogglBot
 A simple http bot in python that uses the toggl API
-## API Documentation
-+ https://github.com/toggl/toggl_api_docs
 
 ## Summary
 A python bot that automatically submits psuedo-random info into a scheduler field on toggl. (www.toggl.com)
@@ -17,10 +15,19 @@ Developed to do my homework for me.
 3. chmod -R a+rwx togglbot
 4. edit the shell script (Lines 6 and 7) with your toggl email and password
 5. you might need to change your workspace ID (Line 8)
-6. run the shell script
+
+## Usage
+1. Be sure to edit the shell script accordingly with your username and password
+2. Follow the steps below to get your **WID**
+3. Simply run: sudo ./togglbot.sh
+4. To add custom things, edit line 45 of togglthings.py
+    - Note: Be sure to keep the same syntax
 
 ## Troubleshooting
 + If you can't see the changes on your toggl report, make sure your API token appears on the terminal. If it does not, your password may be incorrect.
 + Can't find my **WID** for line 8
   -Use this command and find "default_wid"
   -curl -s -u username:password -X GET https://www.toggl.com/api/v8/me
+  
+## API Documentation
++ https://github.com/toggl/toggl_api_docs
