@@ -10,14 +10,14 @@ Developed to do my homework for me.
 ## Installation
 + After cloning into the repository file:
 1. pip install requests
-**1.1 install jq
-  -https://stedolan.github.io/jq/
-  -rename it "jq"
-  -place in the togglbot file**
-2. chmod -R a+rwx togglbot
-3. edit the shell script (Lines 6 and 7) with your toggl email and password
-4. you might need to change your workspace ID (Line 8)
-5. run the shell script
+2. **install jq
+  - https://stedolan.github.io/jq/
+  - rename it "jq"
+  - place in the togglbot file**
+3. chmod -R a+rwx togglbot
+4. edit the shell script (Lines 6 and 7) with your toggl email and password
+5. you might need to change your workspace ID (Line 8)
+6. run the shell script
 
 ## Troubleshooting
 + If you can't see the changes on your toggl report, make sure your API token appears on the terminal. If it does not, your password may be incorrect.
