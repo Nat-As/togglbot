@@ -46,8 +46,7 @@ hw = ["Calculus", "Break", "Study", "Physics", "LAB", "Misc.", "Robotics", "Prog
 
 #LOG DATA (before sending)
 
-print slotv1
-#, "Minutes", random.choice(hw)
+print random.choice(hw)
 #print slotv2, "Minutes", random.choice(hw)
 #print slotv3, "Minutes", random.choice(hw)
 #print slotv4, "Minutes", random.choice(hw)

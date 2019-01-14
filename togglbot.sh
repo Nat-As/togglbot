@@ -5,24 +5,30 @@ clear
 
 user=jandrews7348@floridapoly.edu
 pass=password
+wid=3164178
 
 #Get API Token
 APIT="$(curl -s -u $user:$pass \
 -X POST https://www.toggl.com/api/v8/reset_token | sed 's/"//g')"
 printf "Token:$APIT\n"
 
+#Get WID (Workspace ID)
+curl -s -u $APIT:api_token -X GET https://www.toggl.com/api/v8/me | ./jq -r '.default_wid'
+
 #Build DATA
+python="$(./togglbot.py)"
 date="$(date --rfc-3339=seconds | sed 's/ /T/g')"
-slotv1=60
-hw=calculus
-wid=55555
+slotv1="$(./togglbot.py)"
+hw="$(./togglthings.py)"
 
-data="description":"$hw","created_with":"togglbot","start":"$date","duration":$slotv1,"wid":$wid
-req='{"time_entry":{'$data'}}'
+printf "$hw "
+printf "$python"
+printf " Minutes\n"
 
-printf "$req\n"
 #Send request
-curl -u $APIT:api_token \
--H "Content-Type: application/json" \
--d $req \
--X POST https://www.toggl.com/api/v8/time_entries
+printf "\nSending...\n"
+curl -s -u $APIT:api_token \
+	-H "Content-Type: application/json" \
+	-d '{"time_entry":{"description":"'$hw'","created_with":"togglbot","start":"'$date'","duration":"'$slotv1'","wid":'$wid'}}' \
+	-X POST https://www.toggl.com/api/v8/time_entries
+printf "\n"
