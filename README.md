@@ -26,8 +26,8 @@ Developed to do my homework for me.
 ## Troubleshooting
 + If you can't see the changes on your toggl report, make sure your API token appears on the terminal. If it does not, your password may be incorrect.
 + Can't find my **WID** for line 8
-  -Use this command and find "default_wid"
-  -curl -s -u username:password -X GET https://www.toggl.com/api/v8/me
+  - Use this command and find "default_wid"
+  - curl -s -u username:password -X GET https://www.toggl.com/api/v8/me
   
 ## API Documentation
 + https://github.com/toggl/toggl_api_docs
