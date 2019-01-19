@@ -1,5 +1,5 @@
-# TogglBot
-A simple http bot in python and shell that uses the toggl API (Python version: https://github.com/Nat-As/togglbot.py)
+# TogglBot poc
+A simple proof of concept http bot in python and shell that uses the toggl API (Python version: https://github.com/Nat-As/togglbot.py)
 
 ## Summary
 A python bot that automatically submits psuedo-random info into a scheduler field on toggl. (www.toggl.com)
