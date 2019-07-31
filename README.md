@@ -12,7 +12,7 @@ Developed to do my homework for me.
    - https://stedolan.github.io/jq/
    - rename it "jq"
    - place in the togglbot file
-3. chmod -R a+rwx togglbot
+3. chmod -Rv a+rx togglbot
 4. edit the shell script (Lines 6 and 7) with your toggl email and password
 5. you might need to change your workspace ID (Line 8)
 
